@@ -14,7 +14,7 @@ Connected USB Devices
 Screen
 
 
-Power Supply
+**Power Supply**
 
 The Jetson Nano can run in two different power modes. Per default it is
 running in the "10 Watt" mode (also known as mode 0) but there is also
@@ -103,15 +103,130 @@ EMC MAX_FREQ 1600000000
 ```
 
 As can be seen the power consumption is controlled in a very easy
-manner: Mode 1 is just using half of the available CPU cores running at
-reduced speed. This, if you want to use all of the available oooomph
-from the Nano, run in mode 0 and power the board with the Barrel Jack
-connector.
+manner: Mode 1 is just using **half of the available CPU cores** running
+at reduced speed. Thus, if you want to use all of the available oooomph
+from the Nano, always run it in mode 0 and power the board accordingly
+with the Barrel Jack connector and a decent 4A supply.
+
+The configuration defines some more parameters including the minimum and
+maximum frequencies per core. These settings are needed to describe the
+Dynaic Voltage and Frequency Scaling" (DVFS). DVFS is a mechanism to
+crank up the CPU depending on system load.
+
+A call to
+
+```
+sudo jetson_clocks --show
+```
+
+reveals the current settings:
+
+```
+SOC family:tegra210  Machine:jetson-nano
+Online CPUs: 0-3
+CPU Cluster Switching: Disabled
+cpu0: Online=1 Governor=schedutil MinFreq=102000 MaxFreq=1428000 CurrentFreq=1428000 IdleStates: WFI=1 c7=1
+cpu1: Online=1 Governor=schedutil MinFreq=102000 MaxFreq=1428000 CurrentFreq=1428000 IdleStates: WFI=1 c7=1
+cpu2: Online=1 Governor=schedutil MinFreq=102000 MaxFreq=1428000 CurrentFreq=1428000 IdleStates: WFI=1 c7=1
+cpu3: Online=1 Governor=schedutil MinFreq=102000 MaxFreq=1428000 CurrentFreq=1428000 IdleStates: WFI=1 c7=1
+GPU MinFreq=76800000 MaxFreq=921600000 CurrentFreq=153600000
+EMC MinFreq=204000000 MaxFreq=1600000000 CurrentFreq=1600000000 FreqOverride=0
+Fan: speed=0
+NV Power Mode: MAXN
+```
+
+Now use the next command to save the current values into a .conf file:
+
+```
+sudo jetson_clocks --store oldClocks.conf
+```
+
+The content shows how the initial configuration from
+```/etc/nvpmodel/nvpmodel_t210_jetson-nano.conf``` turns into the
+related system device settings:
+
+
+```
+/sys/devices/system/cpu/cpu0/online:1
+/sys/devices/system/cpu/cpu1/online:1
+/sys/devices/system/cpu/cpu2/online:1
+/sys/devices/system/cpu/cpu3/online:1
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq:102000
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq:102000
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq:102000
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq:102000
+/sys/devices/system/cpu/cpu0/cpuidle/state0/disable:0
+/sys/devices/system/cpu/cpu0/cpuidle/state1/disable:0
+/sys/devices/system/cpu/cpu1/cpuidle/state0/disable:0
+/sys/devices/system/cpu/cpu1/cpuidle/state1/disable:0
+/sys/devices/system/cpu/cpu2/cpuidle/state0/disable:0
+/sys/devices/system/cpu/cpu2/cpuidle/state1/disable:0
+/sys/devices/system/cpu/cpu3/cpuidle/state0/disable:0
+/sys/devices/system/cpu/cpu3/cpuidle/state1/disable:0
+/sys/devices/57000000.gpu/devfreq/57000000.gpu/min_freq:76800000
+/sys/devices/57000000.gpu/railgate_enable:1
+/sys/kernel/debug/clk/override.emc/clk_state:0
+/sys/devices/pwm-fan/target_pwm:0
+/sys/devices/pwm-fan/temp_control:1
+```
+
+**Note**: When idling the temperature is about 50 degrees Celsius when
+the Nano is running based on the default settings. YOur mileage may vary
+depending on the current environmental temperature. It may be a good
+idea to watch the temp when playing around. The needed script/info about
+temperatures can be found in the "Useful Scripts" chapter.
+
+Now it is save to activate the maximum values right away to check
+it out:
+
+```
+sudo jetson_clocks
+```
+
+The updated configuration file looks like this:
+
+```
+/sys/devices/system/cpu/cpu0/online:1
+/sys/devices/system/cpu/cpu1/online:1
+/sys/devices/system/cpu/cpu2/online:1
+/sys/devices/system/cpu/cpu3/online:1
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq:1428000
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq:1428000
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq:1428000
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq:1428000
+/sys/devices/system/cpu/cpu0/cpuidle/state0/disable:1
+/sys/devices/system/cpu/cpu0/cpuidle/state1/disable:1
+/sys/devices/system/cpu/cpu1/cpuidle/state0/disable:1
+/sys/devices/system/cpu/cpu1/cpuidle/state1/disable:1
+/sys/devices/system/cpu/cpu2/cpuidle/state0/disable:1
+/sys/devices/system/cpu/cpu2/cpuidle/state1/disable:1
+/sys/devices/system/cpu/cpu3/cpuidle/state0/disable:1
+/sys/devices/system/cpu/cpu3/cpuidle/state1/disable:1
+/sys/devices/57000000.gpu/devfreq/57000000.gpu/min_freq:921600000
+/sys/devices/57000000.gpu/railgate_enable:0
+/sys/kernel/debug/clk/override.emc/clk_state:1
+/sys/devices/pwm-fan/target_pwm:255
+/sys/devices/pwm-fan/temp_control:0
+```
+
+Now the systems runs at full speed including the fan (if connected). As
+a result the temperature drops to 36 degrees when idling.
+
+To switch back to the default settings:
+
+```
+sudo jetson_clocks --restore oldClocks.conf
+```
+
 
 
 
 
 Hardware Extensions
+
+Fan
+
+
 
 
 Software Configuration
@@ -120,9 +235,9 @@ Software Configuration
 
 **Useful Scripts**
 
-Dynamic Voltage and Frequency Scaling (DVFS)
 
 
+Temperature
 
 
 Machine/Deep Learning
