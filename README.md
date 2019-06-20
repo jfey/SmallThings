@@ -7,5 +7,6 @@ Instead of writing down the "lessons learnt" here and there on my local system i
 
 Most of the info listed here is based on code snippets, hints and examples from other sources. I try to link to the original sources whenever possible.
  
-                      [jetson-nano](boards/jetson-nano.md)
+
+[jetson-nano](./boards/jetson-nano.md)
                       
