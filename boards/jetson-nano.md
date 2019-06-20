@@ -225,7 +225,7 @@ sudo jetson_clocks --restore oldClocks.conf
 
 Hardware Extensions
 
-Fan
+**Fan**
 
 When running the first real inference tasks the CPU temperature easily
 jumped over 60 degrees and it seemed to have an negative impact on
@@ -240,8 +240,24 @@ have been used.
 The fan control is based on the current temperature but it is also
 possible to activate or de-activate the fan via a command.
 
+Activating the fan:
 
-SSD Hard Drive
+```
+sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm' 
+```
+
+De-Activating the Fan:
+
+```
+sudo sh -c 'echo 0 > /sys/devices/pwm-fan/target_pwm'
+```
+
+**SSD Hard Drive**
+
+
+Adding swap space on the SSD
+
+
 
 
 Software Configuration
@@ -255,7 +271,32 @@ Adding
 
 **Temperature**
 
-A good general ressource is the Jetson/Thermal
+The current state of important temperature value can be retrieved via
+this command:
+
+```
+cat /sys/devices/virtual/thermal/thermal_zone*/temp
+```
+
+Result:
+
+```
+50000
+41500
+40500
+40500
+100000
+41250
+```
+
+The explanation of the given distinct values are explained via this
+command:
+
+```
+cat /sys/devices/virtual/thermal/thermal_zone*/type
+```
+
+ A good general ressource is the Jetson/Thermal
 [blog](https://elinux.org/Jetson/Thermal) from elinux.org. This blog
 provides the code for a simple "showTemp.pl" Perl script, which will
 show the current temperature.
@@ -274,8 +315,16 @@ sudo tegrastats
 ```
 
 
-
-
+Boot Phase
+          Although /etc/rc.local (a during boot script) no longer exists in Ubuntu 18.04+ If you do create the rc.local file, it will honor it and run as the last script during boot.
+          
+```
+$ cat /etc/rc.local
+#!/bin/bash
+sleep 10
+sudo /usr/bin/jetson_clocks
+sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
+```
 
 Machine/Deep Learning
 
