@@ -222,11 +222,26 @@ sudo jetson_clocks --restore oldClocks.conf
 
 
 
+
 Hardware Extensions
 
 Fan
 
+When running the first real inference tasks the CPU temperature easily
+jumped over 60 degrees and it seemed to have an negative impact on
+system stability as the nano occasionally went into freezing mode from
+time to time. The first hardware option added has been the fan. As
+recommended by others in forums etc. the "Noctua NF-A4x20 5V PWM" has
+been chosen. This fan is a bit on the expensive side, but very well
+built and very silent. The fan comes with a lot of additional material,
+which is of no use in this environment. To fix the fan two slim zip ties
+have been used.
 
+The fan control is based on the current temperature but it is also
+possible to activate or de-activate the fan via a command.
+
+
+SSD Hard Drive
 
 
 Software Configuration
@@ -236,8 +251,30 @@ Software Configuration
 **Useful Scripts**
 
 
+Adding
 
-Temperature
+**Temperature**
+
+A good general ressource is the Jetson/Thermal
+[blog](https://elinux.org/Jetson/Thermal) from elinux.org. This blog
+provides the code for a simple "showTemp.pl" Perl script, which will
+show the current temperature.
+
+![Screenshot from 2019-06-20 22-26-](Screenshot%20from%202019-06-20%2022-26-.png)
+
+
+**System Stats**
+
+The following command displays some important system parameters like
+various temperature values, CPU core loads or currently available
+memory:
+
+```
+sudo tegrastats
+```
+
+
+
 
 
 Machine/Deep Learning
