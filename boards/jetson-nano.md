@@ -1,10 +1,18 @@
 **NVIDIA Jetson Nano**
 
+The Nvidia Jetson [Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) - a powerful alternative to the likes of
+RPi/Movidius bundle when you are looking for a powerful edge device,
+which can cope with some machine learning/deep learning tasks. This page
+provides some details about hardware and software related topics -
+stuff, which had been useful to do the first steps with the device.
 
 **Basic Hardware Setup**
 
+The Nvidia box, which comes woith the device is pretty much useless for
+serious work. Just throw it away and start the beefing up right away -
+or at least prepare for it.
 
-**3D Printed Case**
+ **3D Printed Case**
 
 To get a nice to handle package a 3D printed case has been used. The
 needed case package can be found on the
