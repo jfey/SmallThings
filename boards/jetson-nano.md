@@ -6,6 +6,9 @@
 
 **3D Printed Case**
 
+![nano with fan.jpg](../pics/nano%20with%20fan.jpg)
+
+![nano 3dprint case .jpg](../pics/nano%203dprint%20case%20.jpg)
 
 **Commercial Case**
 
@@ -26,11 +29,21 @@ too.
 During the first test runs the board was still fine (mouse, keyboard,
 Webcam) and it ran also nicely even after adding the fan. Still it is
 highly recommended to switch to a 5V 4A power supply with the Barrel
-Jack connector (5V inside). Now everything runs inside the specs and the
-power hungry DL inference can run safely.
+Jack connector (5V inside). The shown power supply (LEICKE Power Supply
+5V 4A | 20W) works fine with the device - you may find others from the
+usual sources.
 
-To activate the Barrel Jack power supply a Jumper needs to be set
+![4a power supply.jpg](../pics/4a%20power%20supply.jpg)
 
+To activate the Barrel Jack power supply a Jumper needs to be set. The
+related jumper (not part of the Jetson Nano board delivery so remember
+where you last saw jumpers laying around) is located next to the camera
+interface:
+
+![nano power jumperl.png](../pics/nano%20power%20jumperl.png)
+
+Now everything runs inside the specs and the power hungry DL inference
+can run safely.
 
 Power Mode
 
@@ -235,6 +248,8 @@ built and very silent. The fan comes with a lot of additional material,
 which is of no use in this environment. To fix the fan two slim zip ties
 have been used.
 
+![nano board with fan.jpg](../pics/nano%20board%20with%20fan.jpg)
+
 The fan control is based on the current temperature but it is also
 possible to activate or de-activate the fan via a command.
 
@@ -260,9 +275,15 @@ will give you enough head room for everything.
 
 But if you need additional memory for even more training/inference data,
 faster general data access or if you want to add some decent swap space
-an external SSD is of great use.
+an external SSD is of great use. For the work to be done a SanDisk 1 TB
+SSD (SanDisk SSD PLUS 1TB Sata III 2,5 Inch internal-SSD, 535MB/Sek) has
+been chosen. Check out the options - the price of this device was moving
+between 88 and 140+ E>uros in one week.
 
-Picture
+To be able to connect it to the USB 3.0 slot a adapter is needed (CSL -
+USB 3.0 SSD SATA Adapter or comparable):
+
+![sandisk ssd.jpg](../pics/sandisk%20ssd.jpg)
 
 To manage the file system you can either use the already available
 "parted" command of use the graphical UI for parted, which is provided
@@ -326,7 +347,9 @@ respective SSD partition - in our case */dev/sda2*.
 
 **Note**: It is currently not possible to boot from SSD directly.
 
-
+**Note**: It is not recommended to use the SD card as swap space. While
+possible you would wear out the memory region inside of the static swap
+file (something like "/mnt/swapfile") pretty fast.
 
 
 **Software Configuration**
