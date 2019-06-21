@@ -467,3 +467,15 @@ Demos/Examples
 
 Forums/Youtube
 
+
+# Shopping List
+
+Amazon Germany
+
+<a target="_blank" href="https://www.amazon.de/gp/product/B01HRR9GY4/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B01HRR9GY4&linkCode=as2&tag=jfey60-21&linkId=110cc676838e4888f3a9e0bee845e3fe">LEICKE Netzteil 5V 4A | Ladegerät 20W für Externe DVD/Blu Ray Laufwerke - Festplatten | Akku, Ladestationen, Smart-Geräte, Radiowecker</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B01HRR9GY4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a target="_blank" href="https://www.amazon.de/gp/product/B07D998212/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B07D998212&linkCode=as2&tag=jfey60-21&linkId=fd9a40cb0bbd4ffe10fd00a5cd6a69ca">SanDisk SSD PLUS 1TB Sata III 2,5 Zoll Interne-SSD, bis zu 535MB/Sek</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B07D998212" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a target="_blank" href="https://www.amazon.de/gp/product/B01K22TZ3I/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B01K22TZ3I&linkCode=as2&tag=jfey60-21&linkId=5703bf8e4ea276398c470db387afed59">CSL - USB 3.0 SSD SATA Adapter - Konverter | für SSD SATA 1 2 3 2,5“ 6,35cm HDD 3,5“ 8,89cm Laufwerke | inkl. Netzteil</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B01K22TZ3I" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a target="_blank" href="https://www.amazon.de/gp/product/B071FNHVXN/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B071FNHVXN&linkCode=as2&tag=jfey60-21&linkId=72cc0e23dc359ece375c9ebffbbf2042">Noctua NF-A4x20 5V PWM, Leiser Premium-Lüfter, 4-Pin, 5V Version (40x20mm Braun)</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B071FNHVXN" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
