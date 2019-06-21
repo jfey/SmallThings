@@ -1,17 +1,15 @@
 **NVIDIA Jetson Nano**
 
 
-Basic Hardware Setup
+**Basic Hardware Setup**
 
 
-3D Printed Case
-
-Commercial Case
-
-Connected USB Devices
+**3D Printed Case**
 
 
-Screen
+**Commercial Case**
+
+
 
 
 **Power Supply**
@@ -281,7 +279,7 @@ this:
 ![gparted_initial.png](../pics/gparted_initial.png)
 
 
-Now its time to define the partion info for the SSD. First a partition
+Now its time to define the partition info for the SSD. First a partition
 table (MSDOS) has to be set for the complete device. Then its up to you
 to define the partition details.
 
@@ -320,21 +318,18 @@ available.
 
 ![system monitor_swap.png](../pics/system%20monitor_swap.png)
 
- During boot the /data folder
-is mounted with the repsective SSD partition - in our case /dev/sda2.
+During the next boot the */mn/data* mount point is mounted with the
+respective SSD partition - in our case */dev/sda2*.
+
+![system monitor new filesystem.png](../pics/system%20monitor%20new%20filesystem.png)
 
 
-
-To add the file system of the new SSD
-
-After connecting the SSD via USB 3.0 to the system 
-
-Adding swap space on the SSD
+**Note**: It is currently not possible to boot from SSD directly.
 
 
 
 
-Software Configuration
+**Software Configuration**
 
 
 
@@ -390,12 +385,12 @@ sudo tegrastats
 ```
 
 
-Boot Phase
+**Boot Phase**
 
 
-Although /etc/rc.local (a during boot script) no longer exists in Ubuntu
-18.04+ If you do create the rc.local file, it will honor it and run as
-the last script during boot.
+While the file */etc/rc.local* has gone with Ubuntu 18.04 it is still
+possible to add this file manually. If present the contents will be read
+and used as the last step of the system boot phase.
           
 ```
 $ cat /etc/rc.local
@@ -405,17 +400,19 @@ sudo /usr/bin/jetson_clocks
 sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 ```
 
-Machine/Deep Learning
+
+
+**Machine/Deep Learning**
 
 
 
 
 
-Operating System
+**Operating System**
 
 
-Demos/Examples
+**Demos/Examples**
 
 
-Forums
+**Forums**
 
