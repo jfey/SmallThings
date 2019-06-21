@@ -1,4 +1,4 @@
-**NVIDIA Jetson Nano**
+#  NVIDIA Jetson Nano
 
 The Nvidia Jetson [Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit) - a powerful alternative to the likes of
 RPi/Movidius bundle when you are looking for a powerful edge device,
@@ -6,19 +6,19 @@ which can cope with some machine learning/deep learning tasks. This page
 provides some details about hardware and software related topics -
 stuff, which had been useful to do the first steps with the device.
 
-**Basic Hardware Setup**
+## Basic Hardware Setup
 
 The Nvidia box, which comes woith the device is pretty much useless for
 serious work. Just throw it away and start the beefing up right away -
 or at least prepare for it.
 
- **3D Printed Case**
+## 3D Printed Case
 
 To get a nice to handle package a 3D printed case has been used. The
 needed case package can be found on the
 [Thingyverse](https://www.thingiverse.com/thing:3518410) site. The case,
-done by ecoiras fits snuggly ans is very well done. Only the connector
-side is a bit delicate and breaks easily.
+done by Thingyverse user *ecoiras* fits snuggly and is very well done.
+Only the connector side is a bit delicate and breaks easily.
 
 ![thingyverse jetson.png](../pics/thingyverse%20jetson.png)
 
@@ -26,25 +26,25 @@ Well, if you print it with a cheap printer and just one color the case looks lik
 
 ![nano with fan.jpg](../pics/nano%20with%20fan.jpg)
 
-Some look into trhe inside:
+A look into the inside:
 
 ![nano 3dprint case.jpg](../pics/nano%203dprint%20case%20.jpg)
 
-**Commercial Case**
+##  Commercial Case
 
 A commercial case has been ordered but has not yet arrived.
 
 
-**Power Supply**
+##  Power Supply
 
-The Jetson Nano can run in two different power modes. Per default it is
-running in the "10 Watt" mode (also known as mode 0) but there is also
-the optional/fallback "5 Watt" mode. The 10 Watt mode has some catch:
-The Jetson module itself already needs 10 Watt and thus there is no
-reserve available if you are running the board via the Micro-USB
-connector with 5V and 2A max. The module does not get what it wants
-since the Jetson board and all connected USB devices drain some power
-too.
+The Jetson Nano can run in two different **power modes**. Per default
+the board is running in the "10 Watt" mode (also known as *Mode 0*) but
+there is also the optional/fallback "5 Watt" mode. The 10 Watt mode has
+a catch: The Jetson module itself already consumes 10 Watt when all
+cores are up and running. There is no more reserve available if you are
+running the board via the Micro-USB connector with 5V and 2A max. The
+module does not get what it wants since the Jetson basis board and all
+connected USB devices drain some power too.
 
 During the first test runs the board was still fine (mouse, keyboard,
 Webcam) and it ran also nicely even after adding the fan. Still it is
@@ -65,7 +65,7 @@ interface:
 Now everything runs inside the specs and the power hungry DL inference
 can run safely.
 
-**Power Modes**
+##  Power Modes
 
 Show current power mode:
 
@@ -100,7 +100,7 @@ nano /etc/nvpmodel/nvpmodel_t210_jetson-nano.conf
 ```
 
 The configuration allows one to change clock rates and many other
-details (to be covered later). But the "Power_Model Definitions"
+details (to be covered later). But the **Power_Model Definitions**
 sections is revealing:
 
 
@@ -140,14 +140,14 @@ EMC MAX_FREQ 1600000000
 ```
 
 As can be seen the power consumption is controlled in a very easy
-manner: **Mode 1 **is just using **half of the available CPU cores**
+manner: Mode 1 is just using half of the available CPU cores
 running at reduced speed. Thus, if you want to use all of the available
-oooomph from the Nano, always run it in **Mode 0 **and power the board
+oooomph from the Nano, always run it in Mode 0 and power the board
 accordingly with the Barrel Jack connector and a decent 4A supply.
 
 The configuration defines some more parameters including the minimum and
 maximum frequencies per core. These settings are needed to describe the
-Dynamic Voltage and Frequency Scaling" (DVFS) behavior. DVFS is a
+**Dynamic Voltage and Frequency Scaling** (DVFS) behavior. DVFS is a
 mechanism to dynamically crank up the CPU depending on the current
 system load.
 
@@ -208,14 +208,14 @@ related system device settings:
 /sys/devices/pwm-fan/temp_control:1
 ```
 
-**Note**: When idling the temperature is about 50 degrees Celsius when
-the Nano is running based on the default settings. Your mileage may vary
+**Note**: When idling, the temperature reaches about 50 degrees Celsius
+when the Nano based on the default settings. Your mileage may vary
 depending on the current environmental temperature. It may be a good
 idea to watch the temp when playing around. The needed script/info about
 temperatures can be found in the "Useful Scripts" chapter.
 
-Now it is save to activate the maximum values right away to check
-it out:
+Now it is save to activate the maximum values right away to check it
+out:
 
 ```
 sudo jetson_clocks
@@ -247,9 +247,9 @@ The updated configuration file looks like this:
 /sys/devices/pwm-fan/temp_control:0
 ```
 
-After *jetson_clocks* the system runs at full speed including the fan
-(if connected). As a result the temperature drops to 36 degrees when
-idling.
+After calling the mighty *jetson_clocks* the system runs at full speed
+including the fan (if connected). As a result the temperature drops to
+36 degrees when idling.
 
 To switch back to the default settings:
 
@@ -260,9 +260,9 @@ sudo jetson_clocks --restore oldClocks.conf
 
 
 
-**Hardware Extensions**
+# Hardware Extensions
 
-**Fan**
+##  Fan
 
 When running the first real inference tasks the CPU temperature easily
 jumped over 60 degrees and it seemed to have an negative impact on
@@ -291,12 +291,15 @@ De-Activating the Fan:
 sudo sh -c 'echo 0 > /sys/devices/pwm-fan/target_pwm'
 ```
 
-**SSD Hard Drive**
+Since the fan activation on the board is temperature controlled there is
+usually no need to explicitly activate/deactivate it though.
+
+##  SSD Hard Drive
 
 The SD card is the primary non-volatile memory system for the Nano. The
 SD card stores the complete operating system, all data models (if
 needed) and of cause all applications and the respective code you may
-run. Thus it is always a good idea to use a **64 GByte SD card**, which
+run. Thus it is always a good idea to use a 64 GByte SD card, which
 will give you enough head room for everything.
 
 But if you need additional memory for even more training/inference data,
@@ -311,10 +314,10 @@ USB 3.0 SSD SATA Adapter or comparable):
 
 ![sandisk ssd.jpg](../pics/sandisk%20ssd.jpg)
 
-To manage the file system you can either use the already available
-"parted" command of use the graphical UI for parted, which is provided
-by the "gparted" application. To install the gparted application use the
-next command:
+To manage the file system you can either use the already installed
+*parted* command or use the more intuitive graphical UI for *parted*.
+This UI comes with the *gparted* application. To install the *gparted*
+application use the next command:
 
 ```
 sudo apt-get install gparted
@@ -330,12 +333,14 @@ Now its time to define the partition info for the SSD. First a partition
 table (MSDOS) has to be set for the complete device. Then its up to you
 to define the partition details.
 
-In the following example 8 GByte have been dedicated as "linux swap" and
-the reminder of the available 1 TB are mapped to the /data folder. This
-folder needs to be present in the root system to allow for a later file
-system mount. Check the chosen settings and select the green arrow on
-the gparted main menu. This will start the partitioning - all current
-data on the SSD will be gone after this step.
+## Adding swap
+
+In the following example 8 GByte have been dedicated as *linux swap* and
+the reminder of the available 1 TB are mapped to the */mnt/data* folder.
+This folder needs to be present in the root file system to allow for a
+later file system *mount*. Check the chosen settings and select the green
+arrow on the *gparted* main menu. This will start the partitioning - all
+current data on the SSD will be gone after this step.
 
 ![gparted_swap_data.png](../pics/gparted_swap_data.png)
 
@@ -373,23 +378,22 @@ respective SSD partition - in our case */dev/sda2*.
 
 **Note**: It is currently not possible to boot from SSD directly.
 
-**Note**: It is not recommended to use the SD card as swap space. While
-possible you would wear out the memory region inside of the static swap
-file (something like "/mnt/swapfile") pretty fast.
+**Note**: It is **not** recommended to use the SD card as swap space.
+While possible you would wear out the memory region defined by the
+static *swap* file (something like "*/mnt/swapfile*") pretty fast.
 
 
-**Software Configuration**
+# Software
 
 
 
-**Useful Scripts**
+##  Useful Scripts
 
 
-Adding
 
-**Temperature**
+##  Temperature Control
 
-The current state of important temperature value can be retrieved via
+The current state of important temperature values can be retrieved via
 this command:
 
 ```
@@ -415,7 +419,7 @@ cat /sys/devices/virtual/thermal/thermal_zone*/type
 ```
 
 A good general ressource is the Jetson/Thermal
-[blog](https://elinux.org/Jetson/Thermal) from elinux.org. This blog
+[blog](https://elinux.org/Jetson/Thermal) from elinux.org. This blog 
 provides also the code for a simple "showTemp.pl" Perl script, which
 will show the current temperature. Can come in very handy when running
 intense use cases.
@@ -423,7 +427,7 @@ intense use cases.
 ![showtemp_script.png](../pics/showtemp_script.png)
 
 
-**System Stats**
+##  System Stats
 
 The following command displays some important system parameters like
 various temperature values, CPU core loads or currently available
@@ -434,7 +438,7 @@ sudo tegrastats
 ```
 
 
-**Boot Phase**
+##  Boot Phase
 
 
 While the file */etc/rc.local* has gone with Ubuntu 18.04 it is still
@@ -452,14 +456,14 @@ sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 
 The following chapters will be covered soon.
 
-**Machine/Deep Learning**
+Machine/Deep Learning
 
 
-**Operating System**
+Operating System
 
 
-**Demos/Examples**
+Demos/Examples
 
 
-**Forums/Youtube**
+Forums/Youtube
 

@@ -20,5 +20,5 @@ Some of the info listed here is based on code snippets, hints and
 examples from other sources. I try to link to the original sources
 whenever possible.
  
-[NVidia Jetson Nano](./boards/jetson-nano.md)
+##  [Nvidia Jetson Nano](./boards/jetson-nano.md)
                       
