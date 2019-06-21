@@ -223,7 +223,7 @@ sudo jetson_clocks --restore oldClocks.conf
 
 
 
-Hardware Extensions
+**Hardware Extensions**
 
 **Fan**
 
@@ -254,6 +254,80 @@ sudo sh -c 'echo 0 > /sys/devices/pwm-fan/target_pwm'
 
 **SSD Hard Drive**
 
+The SD card is the primary non-volatile memory system for the Nano. The
+SD card stores the complete operating system, all data models (if
+needed) and of cause all applications and the respective code you may
+run. Thus it is always a good idea to use a **64 GByte SD card**, which
+will give you enough head room for everything.
+
+But if you need additional memory for even more training/inference data,
+faster general data access or if you want to add some decent swap space
+an external SSD is of great use.
+
+Picture
+
+To manage the file system you can either use the already available
+"parted" command of use the graphical UI for parted, which is provided
+by the "gparted" application. To install the gparted application use the
+next command:
+
+```
+sudo apt-get install gparted
+```
+
+With just the initial SD card inserted the information may look like
+this:
+
+![gparted_initial.png](../pics/gparted_initial.png)
+
+
+Now its time to define the partion info for the SSD. First a partition
+table (MSDOS) has to be set for the complete device. Then its up to you
+to define the partition details.
+
+In the following example 8 GByte have been dedicated as "linux swap" and
+the reminder of the available 1 TB are mapped to the /data folder. This
+folder needs to be present in the root system to allow for a later file
+system mount. Check the chosen settings and select the green arrow on
+the gparted main menu. This will start the partitioning - all current
+data on the SSD will be gone after this step.
+
+![gparted_swap_data.png](../pics/gparted_swap_data.png)
+
+Now its time to define the mapping for two new partitions by editing the
+fstab file:
+
+```
+sudo nano /etc/fstab
+```
+
+Change the *fstab* file along the lines of this example:
+
+```
+/dev/root      /           ext4  defaults 0 1
+/dev/sda1      swap        swap  defaults 0 0
+/dev/sda2      /mnt/data   ext4  defaults 0 2
+```
+
+Now you can already activate the swap with this command:
+
+```
+sudo swapon -a
+```
+
+A quick check in the system monitor will reveal the new swap swap being
+available.
+
+![system monitor_swap.png](../pics/system%20monitor_swap.png)
+
+ During boot the /data folder
+is mounted with the repsective SSD partition - in our case /dev/sda2.
+
+
+
+To add the file system of the new SSD
+
+After connecting the SSD via USB 3.0 to the system 
 
 Adding swap space on the SSD
 
@@ -296,10 +370,11 @@ command:
 cat /sys/devices/virtual/thermal/thermal_zone*/type
 ```
 
- A good general ressource is the Jetson/Thermal
+A good general ressource is the Jetson/Thermal
 [blog](https://elinux.org/Jetson/Thermal) from elinux.org. This blog
-provides the code for a simple "showTemp.pl" Perl script, which will
-show the current temperature.
+provides also the code for a simple "showTemp.pl" Perl script, which
+will show the current temperature. Can come in very handy when running
+intense use cases.
 
 ![showtemp_script.png](../pics/showtemp_script.png)
 
@@ -316,7 +391,11 @@ sudo tegrastats
 
 
 Boot Phase
-          Although /etc/rc.local (a during boot script) no longer exists in Ubuntu 18.04+ If you do create the rc.local file, it will honor it and run as the last script during boot.
+
+
+Although /etc/rc.local (a during boot script) no longer exists in Ubuntu
+18.04+ If you do create the rc.local file, it will honor it and run as
+the last script during boot.
           
 ```
 $ cat /etc/rc.local
