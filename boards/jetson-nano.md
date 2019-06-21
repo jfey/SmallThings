@@ -8,7 +8,7 @@
 
 ![nano with fan.jpg](../pics/nano%20with%20fan.jpg)
 
-![nano 3dprint case .jpg](../pics/nano%203dprint%20case%20.jpg)
+![nano 3dprint case.jpg](../pics/nano%203dprint%20case%20.jpg)
 
 **Commercial Case**
 
