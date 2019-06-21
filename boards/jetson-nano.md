@@ -470,7 +470,10 @@ Forums/Youtube
 
 # Shopping List
 
-Amazon Germany
+If you want to buy some of the products covered, i have listed the links
+below.
+
+###  Amazon Germany
 
 <a target="_blank" href="https://www.amazon.de/gp/product/B01HRR9GY4/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B01HRR9GY4&linkCode=as2&tag=jfey60-21&linkId=110cc676838e4888f3a9e0bee845e3fe">LEICKE Netzteil 5V 4A | Ladegerät 20W für Externe DVD/Blu Ray Laufwerke - Festplatten | Akku, Ladestationen, Smart-Geräte, Radiowecker</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B01HRR9GY4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
