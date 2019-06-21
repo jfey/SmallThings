@@ -65,12 +65,19 @@ interface:
 Now everything runs inside the specs and the power hungry DL inference
 can run safely.
 
-Power Mode
+**Power Modes**
 
 Show current power mode:
 
 ```
 sudo nvpmodel -q
+```
+
+The output migh look like this:
+
+```
+NV Power Mode: MAXN
+0
 ```
 
 To set mode 0 (10W):
@@ -79,14 +86,13 @@ To set mode 0 (10W):
 sudo nvpmodel -m 0
 ```
 
-
 To set mode 0 (10W):
 
 ```
 sudo nvpmodel -m 1
 ```
 
-It is possible to define your own nvpmodel - the respective
+It is possible to define your own *nvpmodel* - the respective
 configuration file can be found here:
 
 ```
@@ -134,15 +140,16 @@ EMC MAX_FREQ 1600000000
 ```
 
 As can be seen the power consumption is controlled in a very easy
-manner: Mode 1 is just using **half of the available CPU cores** running
-at reduced speed. Thus, if you want to use all of the available oooomph
-from the Nano, always run it in mode 0 and power the board accordingly
-with the Barrel Jack connector and a decent 4A supply.
+manner: **Mode 1 **is just using **half of the available CPU cores**
+running at reduced speed. Thus, if you want to use all of the available
+oooomph from the Nano, always run it in **Mode 0 **and power the board
+accordingly with the Barrel Jack connector and a decent 4A supply.
 
 The configuration defines some more parameters including the minimum and
 maximum frequencies per core. These settings are needed to describe the
-Dynaic Voltage and Frequency Scaling" (DVFS). DVFS is a mechanism to
-crank up the CPU depending on system load.
+Dynamic Voltage and Frequency Scaling" (DVFS) behavior. DVFS is a
+mechanism to dynamically crank up the CPU depending on the current
+system load.
 
 A call to
 
@@ -202,7 +209,7 @@ related system device settings:
 ```
 
 **Note**: When idling the temperature is about 50 degrees Celsius when
-the Nano is running based on the default settings. YOur mileage may vary
+the Nano is running based on the default settings. Your mileage may vary
 depending on the current environmental temperature. It may be a good
 idea to watch the temp when playing around. The needed script/info about
 temperatures can be found in the "Useful Scripts" chapter.
@@ -240,16 +247,15 @@ The updated configuration file looks like this:
 /sys/devices/pwm-fan/temp_control:0
 ```
 
-Now the systems runs at full speed including the fan (if connected). As
-a result the temperature drops to 36 degrees when idling.
+After *jetson_clocks* the system runs at full speed including the fan
+(if connected). As a result the temperature drops to 36 degrees when
+idling.
 
 To switch back to the default settings:
 
 ```
 sudo jetson_clocks --restore oldClocks.conf
 ```
-
-
 
 
 
@@ -444,11 +450,9 @@ sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 ```
 
 
+The following chapters will be covered soon.
 
 **Machine/Deep Learning**
-
-
-
 
 
 **Operating System**
@@ -457,5 +461,5 @@ sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 **Demos/Examples**
 
 
-**Forums**
+**Forums/Youtube**
 
