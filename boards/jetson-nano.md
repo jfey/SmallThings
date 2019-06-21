@@ -6,13 +6,25 @@
 
 **3D Printed Case**
 
+To get a nice to handle package a 3D printed case has been used. The
+needed case package can be found on the
+[Thingyverse](https://www.thingiverse.com/thing:3518410) site. The case,
+done by ecoiras fits snuggly ans is very well done. Only the connector
+side is a bit delicate and breaks easily.
+
+![thingyverse jetson.png](../pics/thingyverse%20jetson.png)
+
+Well, if you print it with a cheap printer and just one color the case looks like this:
+
 ![nano with fan.jpg](../pics/nano%20with%20fan.jpg)
+
+Some look into trhe inside:
 
 ![nano 3dprint case.jpg](../pics/nano%203dprint%20case%20.jpg)
 
 **Commercial Case**
 
-
+A commercial case has been ordered but has not yet arrived.
 
 
 **Power Supply**
