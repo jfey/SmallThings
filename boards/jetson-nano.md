@@ -482,3 +482,12 @@ below.
 <a target="_blank" href="https://www.amazon.de/gp/product/B01K22TZ3I/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B01K22TZ3I&linkCode=as2&tag=jfey60-21&linkId=5703bf8e4ea276398c470db387afed59">CSL - USB 3.0 SSD SATA Adapter - Konverter | für SSD SATA 1 2 3 2,5“ 6,35cm HDD 3,5“ 8,89cm Laufwerke | inkl. Netzteil</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B01K22TZ3I" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 <a target="_blank" href="https://www.amazon.de/gp/product/B071FNHVXN/ref=as_li_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B071FNHVXN&linkCode=as2&tag=jfey60-21&linkId=72cc0e23dc359ece375c9ebffbbf2042">Noctua NF-A4x20 5V PWM, Leiser Premium-Lüfter, 4-Pin, 5V Version (40x20mm Braun)</a><img src="//ir-de.amazon-adsystem.com/e/ir?t=jfey60-21&l=am2&o=3&a=B071FNHVXN" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+### Amazon USA
+
+<a target="_blank" href="https://www.amazon.com/gp/product/B07D998212/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07D998212&linkCode=as2&tag=jfey60-20&linkId=5cde052de09fc32029525bf70a1e9ca7">SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s, 2.5"/7mm - SDSSDA-1T00-G26</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=jfey60-20&l=am2&o=1&a=B07D998212" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a target="_blank" href="https://www.amazon.com/gp/product/B011M8YACM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B011M8YACM&linkCode=as2&tag=jfey60-20&linkId=5a6a214c3d69c4e7e00ee6f4e4eddf3a">Sabrent USB 3.0 to SSD / 2.5-Inch SATA Hard Drive Adapter [Optimized for SSD, Support UASP SATA III] (EC-SSHD)</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=jfey60-20&l=am2&o=1&a=B011M8YACM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+<a target="_blank" href="https://www.amazon.com/gp/product/B071W93333/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B071W93333&linkCode=as2&tag=jfey60-20&linkId=61385cc07308d2fb538b4bae1f13fcd9">Noctua NF-A4x20 PWM, Premium Quiet Fan, 4-Pin (40x20mm, Brown)</a><img src="//ir-na.amazon-adsystem.com/e/ir?t=jfey60-20&l=am2&o=1&a=B071W93333" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
