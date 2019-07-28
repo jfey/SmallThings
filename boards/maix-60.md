@@ -13,7 +13,7 @@ The MAIX Go started as a IndieGogo [project](https://www.indiegogo.com/projects/
 - USB-C connector for power and programming
 - Micropython
 - Supports Tensorflow Lite, MobileNet V1 and Tiny-Yolo
--
+
 
 ![maix go top1.jpg](../pics/maix%20go%20top1.jpg)
 
