@@ -1,6 +1,6 @@
 # MAIX GO
 
-The MAIX Go is a complete IoT/ML/DL environment for embedded use cases. The list of features is impressive:
+The MAIX Go started as a IndieGogo [project](https://www.indiegogo.com/projects/sipeed-maix-the-world-first-risc-v-64-ai-module#/) and is a complete IoT/ML/DL environment for embedded use cases. The list of features is impressive:
 
 - KPU [K210](http://dl.sipeed.com/MAIX/SDK/Document/kendryte_datasheet_20181011163248_en.pdf) : Dual Core 64-Bit RISC-V CPU/FPU, 400 Mhz Neural Network
 - Processor on chip 8 MB SRAM Audio Processor Programmable FPIOA DVP
@@ -8,14 +8,23 @@ The MAIX Go is a complete IoT/ML/DL environment for embedded use cases. The list
 - LCD
 - Display
 - WLAN
-- Various HW Accelerators: SHA256, AES, FFT
-- Plenty of IO
+- Various HW accelerators: SHA256, AES, FFT
+- Plenty of I/O
 - USB-C connector for power and programming
+- Micropython
+- Supports Tensorflow Lite, MobileNet V1 and Tiny-Yolo
+-
 
+![maix go top1.jpg](../pics/maix%20go%20top1.jpg)
 
 The "Sipeed MAIX Go Suit" product, which is covered here is a complete system with camera, display, speaker, a lithium battery, a small WLAN antenna and a simple case - all for around 40 US Dollar (plus import taxes if applicable).
 
-The official [datasheet](http://dl.sipeed.com/MAIX/HDK/Maix-GO/Specifications/Sipeed%20MaixGo%20Datasheet%20V1.1.pdf) summarizes the features.
+![maix go side 1.jpg](../pics/maix%20go%20side%201.jpg)
+
+The official [datasheet](http://dl.sipeed.com/MAIX/HDK/Maix-GO/Specifications/Sipeed%20MaixGo%20Datasheet%20V1.1.pdf) summarizes the features. GitJer has also compiled some information on [github](https://github.com/GitJer/Some-Sipeed-MAIX-GO-k210-stuff).
+
+![maix go block diagram.png](../pics/maix%20go%20block%20diagram.png)
+(Source: IndieGogo page)
 
 # Software Installation
 
@@ -52,6 +61,10 @@ Usually each firmware version comes with a set of different setups. From the off
     elf.7z： elf file, ordinary users do not care, used for crash debugging
 ```
 
+Typical list of files for a given build. The latest version may be available as source only.
+
+![Release_v0_3_2_·_sipeed_MaixPy.png](../pics/Release_v0_3_2_·_sipeed_MaixPy.png)
+
 After downloading the latest firmware (V0.4.0_9 at the time of writing) start the firmware update with the following command (the option **-B goE** is needed for the GO):
 
 ```
@@ -76,7 +89,9 @@ Programming BIN: |==============================================================
 [INFO] Rebooting...     `
 ```
 
-**Note**: The GUI version did not start on my MBP and thus the commaand line script had been used.
+**Note**: The GUI version did not start on my MBP and thus the command line script had been used.
+
+![maix go bootscreen.jpg](../pics/maix%20go%20bootscreen.jpg)
 
 ## MyPy
 

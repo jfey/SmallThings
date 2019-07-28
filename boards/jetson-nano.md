@@ -390,6 +390,7 @@ static *swap* file (something like "*/mnt/swapfile*") pretty fast.
 ##  Useful Scripts
 
 
+[Jetson Stats](https://github.com/rbonghi/jetson_stats) - Simple package to monitoring and control your NVIDIA Jetson [Nano, Xavier, TX2i, TX2, TX1]
 
 ##  Temperature Control
 
