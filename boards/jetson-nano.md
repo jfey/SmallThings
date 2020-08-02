@@ -259,7 +259,21 @@ To switch back to the default settings:
 sudo jetson_clocks --restore oldClocks.conf
 ```
 
+## Display Resolution
 
+With "normal" displays there where no real problems occurring with the exception of the wrong display resolution. When connecting to a Ilyama XUB3493WQSU wide screen the dashboard did not show up.
+
+To check the supported display resolutions use the following command:
+
+```
+xrandr 
+```
+
+To set a specific resolution use thge following (example) command:
+
+```
+xrandr --output HDMI-0 --mode "2560x1440"
+```
 
 
 # Hardware Extensions
