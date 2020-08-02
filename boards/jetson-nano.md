@@ -34,7 +34,8 @@ A look into the inside:
 
 ##  Commercial Case
 
-In the meantime a commercial case is in use.
+In the meantime a simple acrylic commercial case is in use. The product can be found on Amazon.
+![61BAbcikAVL._AC_SL1440](../pics/61BAbcikAVL._AC_SL1440.png)
 
 ##  Power Supply
 
