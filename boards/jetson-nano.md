@@ -185,7 +185,6 @@ The content shows how the initial configuration from
 ```/etc/nvpmodel/nvpmodel_t210_jetson-nano.conf``` turns into the
 related and current system device settings:
 
-
 ```
 /sys/devices/system/cpu/cpu0/online:1
 /sys/devices/system/cpu/cpu1/online:1
@@ -216,13 +215,19 @@ depending on the current environmental temperature. It may be a good
 idea to watch the temp when playing around. The needed script/info about
 temperatures can be found in the "Useful Scripts" chapter.
 
-Now you can increase the settings by editing the configuration file with your favorite editor like:
+Save the configuration file. Now it is save to activate the maximum values right away to check it
+out:
 
 ```
-nano /etc/nvpmodel/nvpmodel_t210_jetson-nano.con
+sudo jetson_clocks
 ```
-
 The updated configuration file looks like this:
+
+```
+sudo jetson_clocks --store oldClocks_new.conf
+```
+
+and check out the new values:
 
 ```
 /sys/devices/system/cpu/cpu0/online:1
@@ -246,13 +251,6 @@ The updated configuration file looks like this:
 /sys/kernel/debug/clk/override.emc/clk_state:1
 /sys/devices/pwm-fan/target_pwm:255
 /sys/devices/pwm-fan/temp_control:0
-```
-
-Save the configuration file. Now it is save to activate the maximum values right away to check it
-out:
-
-```
-sudo jetson_clocks
 ```
 
 After calling the mighty *jetson_clocks* command, the system runs at full speed
