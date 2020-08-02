@@ -6,6 +6,8 @@ which can cope with some machine learning/deep learning tasks. This page
 provides some details about hardware and software related topics -
 stuff, which had been useful to do the first steps with the device.
 
+Note: Jetpack 4.4 performance issues: It has been [reported](https://forums.developer.nvidia.com/t/darknet-slower-using-jetpack-4-4-cudnn-8-0-0-cuda-10-2-than-jetpack-4-3-cudnn-7-6-3-cuda-10-0/121579), that the performance on Nano drops significantly (50% or more) when updating to Jetpack 4.4. There are related posts like [this](https://forums.developer.nvidia.com/t/just-reminding-everyone-that-jetpack-4-4-sucks/141450) , which hint not to use Jetpack 4.4 for now.
+
 ## Basic Hardware Setup
 
 The Nvidia box, which comes woith the device is pretty much useless for
@@ -32,8 +34,7 @@ A look into the inside:
 
 ##  Commercial Case
 
-A commercial case has been ordered but has not yet arrived.
-
+In the meantime a commercial case is in use.
 
 ##  Power Supply
 
@@ -455,18 +456,13 @@ sudo sh -c 'echo 255 > /sys/devices/pwm-fan/target_pwm'
 ```
 
 
-The following chapters will be covered soon.
+# Machine Learning with the Nano
 
-Machine/Deep Learning
+## Installing PyTorch
 
-
-Operating System
-
-
-Demos/Examples
+There is a [blog](https://forums.developer.nvidia.com/t/pytorch-for-jetson-nano-version-1-5-0-now-available/72048) on the Nvidia Developer Forum covering installing PyTorch on the Nano
 
 
-Forums/Youtube
 
 
 # Shopping List
