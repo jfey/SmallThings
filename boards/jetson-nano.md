@@ -6,7 +6,7 @@ which can cope with some machine learning/deep learning tasks. This page
 provides some details about hardware and software related topics -
 stuff, which had been useful to do the first steps with the device.
 
-Note: Jetpack 4.4 performance issues: It has been [reported](https://forums.developer.nvidia.com/t/darknet-slower-using-jetpack-4-4-cudnn-8-0-0-cuda-10-2-than-jetpack-4-3-cudnn-7-6-3-cuda-10-0/121579), that the performance on Nano drops significantly (50% or more) when updating to Jetpack 4.4. There are related posts like [this](https://forums.developer.nvidia.com/t/just-reminding-everyone-that-jetpack-4-4-sucks/141450) , which hint not to use Jetpack 4.4 for now.
+**Note**: Jetpack 4.4 performance issues: It has been [reported](https://forums.developer.nvidia.com/t/darknet-slower-using-jetpack-4-4-cudnn-8-0-0-cuda-10-2-than-jetpack-4-3-cudnn-7-6-3-cuda-10-0/121579), that the performance on Nano drops significantly (50% or more) when updating to Jetpack 4.4. There are related posts like [this](https://forums.developer.nvidia.com/t/just-reminding-everyone-that-jetpack-4-4-sucks/141450) , which hint not to use Jetpack 4.4 for now.
 
 ## Basic Hardware Setup
 
