@@ -144,7 +144,7 @@ EMC MAX_FREQ 1600000000
 As can be seen the power consumption is controlled in a very easy
 manner: Mode 1 is just using half of the available CPU cores
 running at reduced speed. Thus, if you want to use all of the available
-oooomph from the Nano, always run it in Mode 0 and power the board
+*oooomph* from the Nano, always run it in Mode 0 and power the board
 accordingly with the Barrel Jack connector and a decent 4A supply.
 
 The configuration defines some more parameters including the minimum and
@@ -175,7 +175,7 @@ Fan: speed=0
 NV Power Mode: MAXN
 ```
 
-Now use the next command to save the current values into a .conf file:
+Now use the next command to save the current values into a *.conf *file:
 
 ```
 sudo jetson_clocks --store oldClocks.conf
@@ -183,7 +183,7 @@ sudo jetson_clocks --store oldClocks.conf
 
 The content shows how the initial configuration from
 ```/etc/nvpmodel/nvpmodel_t210_jetson-nano.conf``` turns into the
-related system device settings:
+related and current system device settings:
 
 
 ```
@@ -216,11 +216,10 @@ depending on the current environmental temperature. It may be a good
 idea to watch the temp when playing around. The needed script/info about
 temperatures can be found in the "Useful Scripts" chapter.
 
-Now it is save to activate the maximum values right away to check it
-out:
+Now you can increase the settings by editing the configuration file with your favorite editor like:
 
 ```
-sudo jetson_clocks
+nano /etc/nvpmodel/nvpmodel_t210_jetson-nano.con
 ```
 
 The updated configuration file looks like this:
@@ -249,9 +248,16 @@ The updated configuration file looks like this:
 /sys/devices/pwm-fan/temp_control:0
 ```
 
-After calling the mighty *jetson_clocks* the system runs at full speed
+Save the configuration file. Now it is save to activate the maximum values right away to check it
+out:
+
+```
+sudo jetson_clocks
+```
+
+After calling the mighty *jetson_clocks* command, the system runs at full speed
 including the fan (if connected). As a result the temperature drops to
-36 degrees when idling.
+36 degrees when *idling*.
 
 To switch back to the default settings:
 
