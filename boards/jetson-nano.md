@@ -88,7 +88,7 @@ To set mode 0 (10W):
 sudo nvpmodel -m 0
 ```
 
-To set mode 0 (10W):
+To set mode 1 (5W):
 
 ```
 sudo nvpmodel -m 1
@@ -269,12 +269,13 @@ To check the supported display resolutions use the following command:
 xrandr 
 ```
 
-To set a specific resolution use thge following (example) command:
+To set a specific resolution use the following (example) command:
 
 ```
 xrandr --output HDMI-0 --mode "2560x1440"
 ```
-
+A good explanation of the *xrandr* command cen be found on this [blog](https://xorg-team.pages.debian.net/xorg/howto/use-xrandr.html).
+To persist the setting, the command can be added to the *.xprofile* file or by using the xorg.conf alternative. More information can be found [here](https://wiki.ubuntu.com/X/Config/Resolution#Setting_xrandr_changes_persistently) .
 
 # Hardware Extensions
 
